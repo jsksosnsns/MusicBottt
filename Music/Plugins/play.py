@@ -163,7 +163,7 @@ async def play(_, message: Message):
             else file_name,
         )
         title = "Selected Audio from Telegram"
-        link = "https://t.me/Technical_Hunter"
+        link = "https://t.me/Dost_hai_sab"
         thumb = "cache/IMG_20211231_003953_527.jpg"
         videoid = "smex1"
     elif url:
@@ -256,7 +256,7 @@ async def play(_, message: Message):
             buttons = playlist_markup(user_name, user_id)
             hmo = await message.reply_photo(
             photo=thumb, 
-            caption=("**Usage:** /play [Music Name Or Youtube Link Or Reply to Audio]\n\nIf You Want To Play Playlists! Select The One From Below.\n\n**More Info In [Group](t.me/flicksrobotsupport)**"),    
+            caption=("**Usage:** /play [Music Name Or Youtube Link Or Reply to Audio]\n\nIf You Want To Play Playlists! Select The One From Below.\n\n**More Info In [Group](t.me/Dost_hai_sab)**"),    
             reply_markup=InlineKeyboardMarkup(buttons),
             ) 
             return
