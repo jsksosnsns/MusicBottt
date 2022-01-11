@@ -30,11 +30,11 @@ def start_pannel():
             InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅ​", url="https://telegra.ph/Skyzo-11-10"),
+            InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅ​", url="https://telegra.ph/DEXDECRYPT-MUSICBOT-01-11-2"),
         ],
     ]
     return (
-        "🎛 **{BOT_NAME} Merupakan salah satu dari bot telegram yang bisa memutar musik di grup**",
+        "🎛 **{BOT_NAME} Is one of the telegram bots that can play music on the group**",
         buttons,
     )
 
@@ -50,8 +50,8 @@ pstart_markup = InlineKeyboardMarkup(
             InlineKeyboardButton("Updates", url=f"https://t.me/{CHANNEL}"),
         ],
         [
-            InlineKeyboardButton("Cmd Music", url="https://telegra.ph/Skyzo-11-10"),
-            InlineKeyboardButton("Cmd Stream", url="https://telegra.ph/sᴋʏᴢᴏ-ᴇx-12-21"),
+            InlineKeyboardButton("Cmd Music", url="https://telegra.ph/DEXDECRYPT-MUSICBOT-01-11-2"),
+            InlineKeyboardButton("Cmd Stream", url="https://telegra.ph/DEXDECRYPT-MUSICBOT-01-11"),
         ],
     ]
 )
@@ -65,11 +65,11 @@ async def welcome(_, message: Message):
         try:
             if member.id in OWNER:
                 return await message.reply_text(
-                    f"🦸🏻‍♂️ **Pemilik Bot [{member.mention}] baru saja bergabung di grup ini.**"
+                    f"🦸🏻‍♂️ **Bot owner [{member.mention}] just joined this group.**"
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"**🤖 Admin Bot [{member.mention}] baru saja bergabung di grup ini.**"
+                    f"**🤖 Admin Bot [{member.mention}] just joined this group.**"
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -77,9 +77,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-👋 ** Halo senang rasanya bisa bergabung di grup ini**
+👋 ** Hello, it's nice to be able to join this group**
 
-💡 **Jangan lupa untuk menjadikan saya sebagai admin di grup ini**
+**Don't forget to make me an admin in this group**
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
@@ -100,10 +100,10 @@ async def start(_, message: Message):
     out = start_pannel()
     await message.reply_text(
         f"""
-Terima kasih telah memasukkan saya di {message.chat.title}.
-Musik itu hidup.
+Thanks for including me on {message.chat.title}.
+Music is alive.
 
-Untuk bantuan silahkan klik tombol dibawah.
+For help please click the button below.
 """,
         reply_markup=InlineKeyboardMarkup(out[1]),
         disable_web_page_preview=True
@@ -146,14 +146,14 @@ async def play(_, message: Message):
             searched_text = f"""
 🔍 **Video Track Information**
 
-❇️**Judul:** {x["title"]}
+❇️**Title:** {x["title"]}
 
-⏳ **Durasi:** {round(x["duration"] / 60)} Mins
-👀 **Ditonton:** `{x["view_count"]}`
-👍 **Suka:** `{x["like_count"]}`
-👎 **Tidak suka:** `{x["dislike_count"]}`
-⭐️ **Peringkat Rata-rata:** {x["average_rating"]}
-🎥 **Nama channel:** {x["uploader"]}
+⏳ **Duration:** {round(x["duration"] / 60)} Mins
+👀 **Watched:** `{x["view_count"]}`
+👍 **Like:** `{x["like_count"]}`
+👎 **Do not like:** `{x["dislike_count"]}`
+⭐️ **Average Rating:** {x["average_rating"]}
+🎥 **Name channel:** {x["uploader"]}
 📎 **Channel Link:** [Kunjungi Dari Sini]({x["channel_url"]})
 🔗 **Link:** [Link]({x["webpage_url"]})
 """
@@ -170,7 +170,7 @@ async def play(_, message: Message):
             )
         if str(finxx) == "sud":
             sudoers = await get_sudoers()
-            text = "**💻 DAFTAR PENGGUNA SUDO**\n\n"
+            text = "**💻 SUDO USER LIST**\n\n"
             for count, user_id in enumerate(sudoers, 1):
                 try:
                     user = await app.get_users(user_id)
@@ -179,6 +179,6 @@ async def play(_, message: Message):
                     continue
                 text += f"- {user}\n"
             if not text:
-                await message.reply_text("Tidak Ada Pengguna Sudo")
+                await message.reply_text("No Sudo User")
             else:
                 await message.reply_text(text)
